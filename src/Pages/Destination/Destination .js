@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Europa from './Europa/Europa';
 import Mars from './Mars/Mars';
 import Moon from './Moon/Moon';
-import Moons from './Moons/Moons';
 import Titan from './Titan/Titan';
 
 const Destination = () => {
@@ -10,20 +9,20 @@ const Destination = () => {
     const [mars, setMars] = useState(false);
     const [europa, setEuropa] = useState(false);
     const [titan, SetTitan] = useState(false);
+    console.log(moons, mars, europa, titan)
     const imgUrl = 'https://www.esa.int/var/esa/storage/images/19716864-11-eng-GB/ESA_root_pillars.jpg';
-    const moon = {
-        name: 'MOON',
-        detail: 'See our planet as you’ve never seen it before. A perfect relaxing trip away to help regain perspective and come back refreshed. While you’re there, take in some history by visiting the Luna 2 and Apollo 11 landing sites.',
-        km: '384,400 km',
-        day: '3 days',
-        img: 'https://i.ibb.co/vDcttFC/real-Moon-removebg-preview.png'
-    };
+
     return (
         <div className='w-full text-white h-full' style={{
             backgroundImage: `url(${imgUrl})`
         }}>
             <div>
-                {moons && mars && europa && titan && <moon></moon>}
+                {
+                    !moons && <Moon></Moon> && !mars && <Moon></Moon> && !europa && <Moon></Moon> && !titan && <Moon></Moon>
+                }
+            </div>
+
+            <div>
                 <div>
                     {moons && <Moon></Moon>}
                 </div>
@@ -67,6 +66,7 @@ const Destination = () => {
                 </div>
 
             </div>
+
         </div>
     );
 };
