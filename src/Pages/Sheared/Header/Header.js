@@ -15,6 +15,7 @@ const Header = () => {
                 </div>
                 <div>
                     <Link to='/space'>Space</Link>
+                    <Link className='mx-12' to='/destination'>Destination</Link>
                 </div>
             </div>
         </div>
